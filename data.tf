@@ -39,3 +39,8 @@ data "azurerm_key_vault" "customer_keyvault" {
   name = "kv-${var.customername}-${var.location}"
   resource_group_name = data.azurerm_resource_group.rg_coreservices.name
 }
+
+data "azurerm_key_vault_secret" "ixmessaging_password" {
+  name = "kv-${var.customername}-${var.location}"
+  resource_group_name = data.azurerm_resource_group.rg_coreservices.name
+}
