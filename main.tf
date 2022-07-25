@@ -9,7 +9,7 @@ resource "azurerm_windows_virtual_machine_" "ixmessagingzone1" {
   location            = var.location
   sku                 = "Standard_D8s_v4"
   admin_username      = "adminuser"
-  admin_password      = azurerm_key_vault_secret.ixmessaging_password.value
+  admin_password      = data.azurerm_key_vault_secret.ixmessaging_password.value
   license_type = "Windows_Server"
 
   enable_automatic_updates = true
@@ -38,13 +38,13 @@ resource "azurerm_windows_virtual_machine_" "ixmessagingzone1" {
   ]
 }
 
-resource "azurerm_windows_virtual_machine_" "ixmessagingzone1" {
-  name                = "${var.customername}-ixmzone1"
+resource "azurerm_windows_virtual_machine_" "ixmessagingzone2" {
+  name                = "${var.customername}-ixmzone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
   sku                 = "Standard_D8s_v4"
   admin_username      = "adminuser"
-  admin_password      = azurerm_key_vault_secret.ixmessaging_password.value
+  admin_password      = data.azurerm_key_vault_secret.ixmessaging_password.value
   license_type = "Windows_Server"
 
   enable_automatic_updates = true
@@ -74,12 +74,12 @@ resource "azurerm_windows_virtual_machine_" "ixmessagingzone1" {
 }
 
 resource "azurerm_windows_virtual_machine_" "ixmessagingzone3" {
-  name                = "${var.customername}-ixmzone1"
+  name                = "${var.customername}-ixmzone3"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
   sku                 = "Standard_D8s_v4"
   admin_username      = "adminuser"
-  admin_password      = azurerm_key_vault_secret.ixmessaging_password.value
+  admin_password      = data.azurerm_key_vault_secret.ixmessaging_password.value
   license_type = "Windows_Server"
   enable_automatic_updates = true
   tags = var.tags
