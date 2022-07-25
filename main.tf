@@ -27,7 +27,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "ixmessaging" {
   }
 
   os_disk {
-    managed_disk_type = "Standard_LRS"
+    storagestorage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
     
   }
@@ -42,4 +42,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "ixmessaging" {
       subnet_id = data.azurerm_subnet.windows_subnet.id
     }
   }
+  depends_on = [
+    azurerm_key_vault_secret.ixmessaging_password,
+  ]
 }
