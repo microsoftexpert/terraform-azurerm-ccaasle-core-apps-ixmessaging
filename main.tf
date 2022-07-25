@@ -15,17 +15,17 @@ resource "azurerm_windows_virtual_machine_scale_set" "ixmessaging" {
   instances           = 3
   enable_automatic_updates = true
   tags = var.tags
-  #source_image_id = ""
+  source_image_id = "/subscriptions/2edbfdca-cb4c-4c5a-86b7-b5b5e0aeaece/resourceGroups/rg-vm-image-hardening/providers/Microsoft.Compute/galleries/acgaocpimages01/images/win19-avaya-cis1-base-20220712"
 
 
-
+/*
   source_image_reference {
     publisher = "MicrosoftWindowsServer"
     offer     = "WindowsServer"
     sku       = "2019-Datacenter"
     version   = "latest"
   }
-
+*/
   os_disk {
     storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
