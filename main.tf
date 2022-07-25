@@ -3,7 +3,7 @@ resource "azurerm_key_vault_secret" "ixmessaging_password" {
   value        = random_password.ixmessaging_password.result
   key_vault_id = data.azurerm_key_vault.customer_keyvault.id
 }
-resource "azurerm_windows_virtual_machine_" "ixmessagingzone1" {
+resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
   name                = "${var.customername}-ixmzone1"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
@@ -38,7 +38,7 @@ resource "azurerm_windows_virtual_machine_" "ixmessagingzone1" {
   ]
 }
 
-resource "azurerm_windows_virtual_machine_" "ixmessagingzone2" {
+resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
   name                = "${var.customername}-ixmzone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
@@ -73,7 +73,7 @@ resource "azurerm_windows_virtual_machine_" "ixmessagingzone2" {
   ]
 }
 
-resource "azurerm_windows_virtual_machine_" "ixmessagingzone3" {
+resource "azurerm_windows_virtual_machine" "ixmessagingzone3" {
   name                = "${var.customername}-ixmzone3"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
