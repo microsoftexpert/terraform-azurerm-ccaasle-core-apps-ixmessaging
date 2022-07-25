@@ -30,3 +30,4 @@ provider "azurerm" {
 provider "random" {
 
 }
+
