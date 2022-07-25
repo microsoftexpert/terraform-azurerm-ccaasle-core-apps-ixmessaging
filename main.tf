@@ -15,6 +15,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "ixmessaging" {
   instances           = 3
   enable_automatic_updates = true
   tags = var.tags
+  zones = ["1", "2", "3",]
   source_image_id = "/subscriptions/2edbfdca-cb4c-4c5a-86b7-b5b5e0aeaece/resourceGroups/rg-vm-image-hardening/providers/Microsoft.Compute/galleries/acgaocpimages01/images/win19-avaya-cis1-base-20220712"
 
 
