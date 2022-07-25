@@ -30,7 +30,7 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
 
   enable_automatic_updates = true
   tags = var.tags
-  zone = ["1",]
+  zone = "1"
   source_image_id = "/subscriptions/2edbfdca-cb4c-4c5a-86b7-b5b5e0aeaece/resourceGroups/rg-vm-image-hardening/providers/Microsoft.Compute/galleries/acgaocpimages01/images/win19-avaya-cis1-base-20220712"
 
   os_disk {
@@ -87,7 +87,7 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
 
   enable_automatic_updates = true
   tags = var.tags
-  zone = ["2",]
+  zone = "2"
   source_image_id = "/subscriptions/2edbfdca-cb4c-4c5a-86b7-b5b5e0aeaece/resourceGroups/rg-vm-image-hardening/providers/Microsoft.Compute/galleries/acgaocpimages01/images/win19-avaya-cis1-base-20220712"
 
   os_disk {
@@ -130,7 +130,7 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone3" {
   license_type = "Windows_Server"
   enable_automatic_updates = true
   tags = var.tags
-  zone = ["3",]
+  zone = "3"
   source_image_id = "/subscriptions/2edbfdca-cb4c-4c5a-86b7-b5b5e0aeaece/resourceGroups/rg-vm-image-hardening/providers/Microsoft.Compute/galleries/acgaocpimages01/images/win19-avaya-cis1-base-20220712"
 
   os_disk {
