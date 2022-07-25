@@ -27,7 +27,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "ixmessaging" {
   }
 
   os_disk {
-    storagestorage_account_type = "Standard_LRS"
+    storage_account_type = "Standard_LRS"
     caching              = "ReadWrite"
     
   }
