@@ -42,5 +42,5 @@ data "azurerm_key_vault" "customer_keyvault" {
 
 data "azurerm_key_vault_secret" "ixmessaging_password" {
   name = "ixmessagingpassword"
-  key_key_vault_id = data.azurerm_key_vault.customer_keyvault.id
+  key_vault_id = data.azurerm_key_vault.customer_keyvault.id
 }
