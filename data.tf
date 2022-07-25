@@ -7,11 +7,6 @@ resource "random_password" "ixmessaging_password" {
   min_numeric = 3
 }
 
-
-data "azurerm_resource_group" "rg_hub_vnet" {
-  name     = "rg-vnet-shared-services-${var.location}"
-}
-
 data "azurerm_resource_group" "rg_corespoke_vnet" {
   name     = "rg-vnet-corespoke-${var.location}-${var.customername}"
 }
