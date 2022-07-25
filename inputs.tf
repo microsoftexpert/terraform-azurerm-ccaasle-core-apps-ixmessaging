@@ -1,0 +1,6 @@
+vnet_name               = "smgr-vnet"
+resource_group_location = "EastUs2"
+subnet_names             = "smgr-sub"
+vnet_location           = "East us2 "
+# prefix                  = "smgrtest"
+admin_password          = "OurP@ssw0rd2022!"
