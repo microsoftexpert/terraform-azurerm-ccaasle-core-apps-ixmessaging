@@ -23,14 +23,10 @@ data "azurerm_resource_group" "rg_coreservices" {
   name     = "rg-coreservices-${var.location}-${var.customername}"
 }
 
-data "azurerm_virtual_network" "hub_vnet" {
-  name                = "vnet-hub-${var.location}-${var.customername}"
-  resource_group_name = data.azurerm_resource_group.rg_hub_vnet.name
-}
 
 data "azurerm_virtual_network" "corespoke_vnet" {
   name                = "vnet-core-${var.location}-${var.customername}"
-  resource_group_name = data.azurerm_resource_group.rg_hub_vnet.name
+  resource_group_name = data.azurerm_resource_group.rg_corespoke_vnet.name
 }
 
 data "azurerm_subnet" "windows_subnet" {
