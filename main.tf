@@ -3,6 +3,22 @@ resource "azurerm_key_vault_secret" "ixmessaging_password" {
   value        = random_password.ixmessaging_password.result
   key_vault_id = data.azurerm_key_vault.customer_keyvault.id
 }
+
+resource "azurerm_network_interface" "ixmessagingzone1" {
+  name                = "${var.customername}-ixmzone1-nic"
+  location            = var.location
+  resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
+  tags                = var.tags
+
+
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = data.azurerm_subnet.windows_subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+
+}
 resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
   name                = "${var.customername}-ixmzone1"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
@@ -23,6 +39,12 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
     
   }
 
+    network_interface_ids = [
+    azurerm_network_interface.ixmessagingzone1.id,
+
+  ]
+  /*
+
   network_interface {
     name    = "internalinterface"
     primary = true
@@ -33,11 +55,27 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
       subnet_id = data.azurerm_subnet.windows_subnet.id
     }
   }
+  */
   depends_on = [
     azurerm_key_vault_secret.ixmessaging_password,
   ]
 }
 
+resource "azurerm_network_interface" "ixmessagingzone2" {
+  name                = "${var.customername}-ixmzone2-nic"
+  location            = var.location
+  resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
+  tags                = var.tags
+
+
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = data.azurerm_subnet.windows_subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+
+}
 resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
   name                = "${var.customername}-ixmzone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
@@ -58,21 +96,30 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
     
   }
 
-  network_interface {
-    name    = "internalinterface"
-    primary = true
+      network_interface_ids = [
+    azurerm_network_interface.ixmessagingzone1.id,
 
-    ip_configuration {
-      name      = "internal"
-      primary   = true
-      subnet_id = data.azurerm_subnet.windows_subnet.id
-    }
-  }
+  ]
   depends_on = [
     azurerm_key_vault_secret.ixmessaging_password,
   ]
 }
 
+resource "azurerm_network_interface" "ixmessagingzone3" {
+  name                = "${var.customername}-ixmzone3-nic"
+  location            = var.location
+  resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
+  tags                = var.tags
+
+
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = data.azurerm_subnet.windows_subnet.id
+    private_ip_address_allocation = "Dynamic"
+  }
+
+}
 resource "azurerm_windows_virtual_machine" "ixmessagingzone3" {
   name                = "${var.customername}-ixmzone3"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
@@ -92,16 +139,10 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone3" {
     
   }
 
-  network_interface {
-    name    = "internalinterface"
-    primary = true
+      network_interface_ids = [
+    azurerm_network_interface.ixmessagingzone1.id,
 
-    ip_configuration {
-      name      = "internal"
-      primary   = true
-      subnet_id = data.azurerm_subnet.windows_subnet.id
-    }
-  }
+  ]
   depends_on = [
     azurerm_key_vault_secret.ixmessaging_password,
   ]
