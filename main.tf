@@ -39,7 +39,7 @@ resource "azurerm_windows_virtual_machine_scale_set" "ixmessaging" {
     ip_configuration {
       name      = "internal"
       primary   = true
-      subnet_id = data.azurerm_virtual_network.corespoke_vnet.subnets[2].id
+      subnet_id = data.azurerm_subnet.windows_subnet.id
     }
   }
 }

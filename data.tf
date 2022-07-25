@@ -38,6 +38,12 @@ data "azurerm_virtual_network" "corespoke_vnet" {
   resource_group_name = data.azurerm_resource_group.rg_hub_vnet.name
 }
 
+data "azurerm_subnet" "windows_subnet" {
+  name                 = "avmApplicationSubnet"
+  virtual_network_name = data.azurerm_virtual_network.corespoke_vnet.name
+  resource_group_name  = data.azurerm_resource_group.rg_corespoke_vnet.name
+}
+
 data "azurerm_key_vault" "customer_keyvault" {
   name = "kv-${var.customername}-${var.location}"
   resource_group_name = data.azurerm_resource_group.rg_coreservices.name
