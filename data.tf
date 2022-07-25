@@ -1,10 +1,10 @@
 resource "random_password" "ixmessaging_password" {
   length      = 16
   special     = true
-  min_upper   = 3
-  min_lower   = 3
-  min_special = 3
-  min_numeric = 3
+  min_upper   = 4
+  min_lower   = 4
+  min_special = 4
+  min_numeric = 4
 }
 
 data "azurerm_resource_group" "rg_corespoke_vnet" {
