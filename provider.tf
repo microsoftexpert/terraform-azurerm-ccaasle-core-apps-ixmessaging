@@ -4,7 +4,7 @@ terraform {
   cloud {
     organization = "AvayaCloud"
     workspaces {
-      name = "ccaasle-azure-terraform-apps-core-daura-smgr"
+      name = "ccaasle-core-apps-ixmessaging"
     }
   }
   required_providers {
