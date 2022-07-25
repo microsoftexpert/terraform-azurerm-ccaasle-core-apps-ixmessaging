@@ -40,5 +40,5 @@ data "azurerm_virtual_network" "corespoke_vnet" {
 
 data "azurerm_key_vault" "customer_keyvault" {
   name = "kv-${var.customername}-${var.location}"
-  resource_group_name = data.azurerm_resource.group.rg_coreservices.name
+  resource_group_name = data.azurerm_resource_group.rg_coreservices.name
 }
