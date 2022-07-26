@@ -23,7 +23,7 @@ resource "azurerm_windows_virtual_machine" "ixmessaging1_zone2" {
   name                = "${var.customername}-ixm1zone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
-  size                 = "Standard_D8s_v4"
+  size                 = "Standard_D8s_v3"
   admin_username      = "adminuser"
   admin_password      = data.azurerm_key_vault_secret.ixmessaging_password.value
   license_type = "Windows_Server"
@@ -80,7 +80,7 @@ resource "azurerm_windows_virtual_machine" "ixmessaging2_zone2" {
   name                = "${var.customername}-ix2zone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
-  size                 = "Standard_D8s_v4"
+  size                 = "Standard_D8s_v3"
   admin_username      = "adminuser"
   admin_password      = data.azurerm_key_vault_secret.ixmessaging_password.value
   license_type = "Windows_Server"
@@ -124,7 +124,7 @@ resource "azurerm_windows_virtual_machine" "ixmessaging3_zone2" {
   name                = "${var.customername}-ixm3zone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
-  size                 = "Standard_D8s_v4"
+  size                 = "Standard_D8s_v3"
   admin_username      = "adminuser"
   admin_password      = data.azurerm_key_vault_secret.ixmessaging_password.value
   license_type = "Windows_Server"
