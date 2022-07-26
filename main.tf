@@ -97,7 +97,7 @@ resource "azurerm_windows_virtual_machine" "ixmessaging2_zone1" {
   }
 
       network_interface_ids = [
-    azurerm_network_interface.ixmessaging1_zone1.id,
+    azurerm_network_interface.ixmessaging2_zone1.id,
 
   ]
   depends_on = [
