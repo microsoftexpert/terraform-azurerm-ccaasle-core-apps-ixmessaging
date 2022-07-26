@@ -80,7 +80,7 @@ resource "azurerm_windows_virtual_machine" "ixmessaging2_zone1" {
   name                = "${var.customername}-ix2zone1"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
-  size                 = "Standard_B8s_v3"
+  size                 = "Standard_D8s_v3"
   admin_username      = "adminuser"
   admin_password      = data.azurerm_key_vault_secret.ixmessaging_password.value
   license_type = "Windows_Server"
