@@ -76,7 +76,7 @@ resource "azurerm_network_interface" "ixmessaging2_zone2" {
   }
 
 }
-resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
+resource "azurerm_windows_virtual_machine" "ixmessaging2_zone2" {
   name                = "${var.customername}-ix2zone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
