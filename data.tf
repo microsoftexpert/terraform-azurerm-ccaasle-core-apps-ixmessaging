@@ -1,8 +1,8 @@
 resource "random_password" "ixmessaging_password" {
-  length      = 16
+  length      = 15
   special     = true
   min_upper   = 4
-  min_lower   = 4
+  min_lower   = 3
   min_special = 4
   min_numeric = 4
 }
