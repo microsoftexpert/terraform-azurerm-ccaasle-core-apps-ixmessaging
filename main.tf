@@ -4,8 +4,8 @@ resource "azurerm_key_vault_secret" "ixmessaging_password" {
   key_vault_id = data.azurerm_key_vault.customer_keyvault.id
 }
 
-resource "azurerm_network_interface" "ixmessagingzone1" {
-  name                = "${var.customername}-ixmzone1-nic"
+resource "azurerm_network_interface" "ixmessaging1_zone2" {
+  name                = "${var.customername}-ixm1zone2-nic"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   tags                = var.tags
@@ -19,8 +19,8 @@ resource "azurerm_network_interface" "ixmessagingzone1" {
   }
 
 }
-resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
-  name                = "${var.customername}-ixmzone1"
+resource "azurerm_windows_virtual_machine" "ixmessaging1_zone2" {
+  name                = "${var.customername}-ixm1zone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
   size                 = "Standard_D8s_v3s"
@@ -40,7 +40,7 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
   }
 
     network_interface_ids = [
-    azurerm_network_interface.ixmessagingzone1.id,
+    azurerm_network_interface.ixmessaging1_zone2.id,
 
   ]
   /*
@@ -61,8 +61,8 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone1" {
   ]
 }
 
-resource "azurerm_network_interface" "ixmessagingzone2" {
-  name                = "${var.customername}-ixmzone2-nic"
+resource "azurerm_network_interface" "ixmessaging2_zone2" {
+  name                = "${var.customername}-ixm2zone2-nic"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   tags                = var.tags
@@ -77,7 +77,7 @@ resource "azurerm_network_interface" "ixmessagingzone2" {
 
 }
 resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
-  name                = "${var.customername}-ixmzone2"
+  name                = "${var.customername}-ix2zone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
   size                 = "Standard_D8s_v3s"
@@ -97,7 +97,7 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
   }
 
       network_interface_ids = [
-    azurerm_network_interface.ixmessagingzone2.id,
+    azurerm_network_interface.ixmessaging2_zone2.id,
 
   ]
   depends_on = [
@@ -105,8 +105,8 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone2" {
   ]
 }
 
-resource "azurerm_network_interface" "ixmessagingzone3" {
-  name                = "${var.customername}-ixmzone3-nic"
+resource "azurerm_network_interface" "ixmessaging3_zone2" {
+  name                = "${var.customername}-ixm3zone2-nic"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   tags                = var.tags
@@ -120,8 +120,8 @@ resource "azurerm_network_interface" "ixmessagingzone3" {
   }
 
 }
-resource "azurerm_windows_virtual_machine" "ixmessagingzone3" {
-  name                = "${var.customername}-ixmzone3"
+resource "azurerm_windows_virtual_machine" "ixmessaging3_zone2" {
+  name                = "${var.customername}-ixm3zone2"
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   location            = var.location
   size                 = "Standard_D8s_v3s"
@@ -140,7 +140,7 @@ resource "azurerm_windows_virtual_machine" "ixmessagingzone3" {
   }
 
       network_interface_ids = [
-    azurerm_network_interface.ixmessagingzone3.id,
+    azurerm_network_interface.ixmessaging3_zone2.id,
 
   ]
   depends_on = [
