@@ -3,7 +3,7 @@ variable "customername" {
 }
 
 variable "location" {
-  type = string
+  type    = string
   default = "eastus2"
 }
 variable "tags" {

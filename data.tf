@@ -8,19 +8,19 @@ resource "random_password" "ixmessaging_password" {
 }
 
 data "azurerm_resource_group" "rg_corespoke_vnet" {
-  name     = "rg-vnet-corespoke-${var.location}-${var.customername}"
+  name = "rg-vnet-corespoke-${var.location}-${var.customername}"
 }
 
 data "azurerm_resource_group" "rg_cc_apps" {
-  name     = "rg-vms-cc-apps-${var.location}-${var.customername}"
+  name = "rg-vms-cc-apps-${var.location}-${var.customername}"
 }
 
 data "azurerm_resource_group" "rg_uc_apps" {
-  name     = "rg-vms-uc-apps-${var.location}-${var.customername}"
+  name = "rg-vms-uc-apps-${var.location}-${var.customername}"
 }
 
 data "azurerm_resource_group" "rg_coreservices" {
-  name     = "rg-coreservices-${var.location}-${var.customername}"
+  name = "rg-coreservices-${var.location}-${var.customername}"
 }
 
 
@@ -36,12 +36,12 @@ data "azurerm_subnet" "windows_subnet" {
 }
 
 data "azurerm_key_vault" "customer_keyvault" {
-  name = "kv-${var.customername}-${var.location}"
+  name                = "kv-${var.customername}-${var.location}"
   resource_group_name = data.azurerm_resource_group.rg_coreservices.name
 }
 
 data "azurerm_key_vault_secret" "ixmessaging_password" {
-  name = "ixmessagingpassword"
+  name         = "ixmessagingpassword"
   key_vault_id = data.azurerm_key_vault.customer_keyvault.id
   depends_on = [
     azurerm_key_vault_secret.ixmessaging_password,
