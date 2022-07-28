@@ -4,8 +4,8 @@ resource "azurerm_key_vault_secret" "ixmessaging_password" {
   key_vault_id = data.azurerm_key_vault.customer_keyvault.id
 }
 
-resource "azurerm_network_interface" "ixmessaging1_zone1" {
-  name                = "${var.customername}-ixm1zone1-nic"
+resource "azurerm_network_interface" "ixmessaging1" {
+  name                = "${var.customername}-ixm1-nic"
   location            = var.location
   resource_group_name = data.azurerm_resource_group.rg_uc_apps.name
   tags                = var.tags
