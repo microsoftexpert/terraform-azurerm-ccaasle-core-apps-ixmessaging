@@ -83,7 +83,7 @@ SETTINGS
 }
 PROTECTED_SETTINGS
   depends_on = [
-    azurerm_windows_virtual_machine.ixm1,
+    azurerm_windows_virtual_machine.ixmessaging1,
   ]
 }
 
