@@ -47,3 +47,8 @@ data "azurerm_key_vault_secret" "ixmessaging_password" {
     azurerm_key_vault_secret.ixmessaging_password,
   ]
 }
+
+data "azurerm_key_vault_secret" "DCAdminPassword" {
+  name         = "DCAdminPassword"
+  key_vault_id = data.azurerm_key_vault.customer_keyvault.id
+}
